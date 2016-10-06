@@ -83,3 +83,7 @@ $(document).ready(main);
 		- créer une fonction 'partieGagnee'
 		- créer une fonction 'partiePerdue'
 	*/
+
+	function demarrerPartie() {}
+	function partieGagnee () {}
+	function partiePerdue() {}
