@@ -1,89 +1,119 @@
-$(document).ready(main);
-
-// Fonction principale
-		function main(){
-	// Créer et initialiser une variable 'globale' qui 
-	// va stocker le nombre de tentatives restantes.
+		$(document).ready(main);
 		
-		var decompter=3;
-		var vie=$('#vies');
-	// Créer et initialiser une variable 'globale' qui 
-	// va stocker le nombre "aléatoire" mystère.
-	var mystere=Math.round(Math.random() * 9  + 1);
-	console.log(mystere);	
-	// == Fonction clickValider == 
-	// Créer la fonction 'clickvalider'
-		function clickvalider(){
-			var selectname=$("#nom").val();
+				function main(){
+
+					function reset (){
+
+						$(vies);
+					}
+					var recuprompt= prompt("Nombre de tentatives");
+					$(".count").text(recuprompt);
+					var vie=$('#vies');
+					var mystere= Math.round(Math.random() * (10 - 1) + 1);
+					console.log(recuprompt);
+					console.log(mystere);
+
+
+					
+				function clickvalider(){
+						var selectname=$("#nom").val();
+					console.log(selectname);
+
+
+					if (selectname==mystere){	
+						alert("Gagné ");
+						$ (reset) ;
+								}
+
+
+					else if (selectname>mystere) {
+						alert("Perdu, votre nombre est trop grand !");
+						decompter--;
+						$(".count").text(decompter);
+					
+					}
+
+
+					else if (selectname<mystere) {
+						alert("Perdu, votre nombre est trop petit !");
+						decompter--;
+						$(".count").text(decompter);
+					}
+					
+					else{
+
+						alert ("Perdu")
+						}
+
+					} 
+					
+					$("#valider").click(clickvalider);
+					reset;
+					}
+
+					
+			function demarrerPartie() {
 				
+				alert("Choisi en combien de fois tu veux trouver le nombre mystère ?");
+			}
+					
+		//* Avant de commencer, choisir les valeurs minimale et maximale du nombre que l'ordinateur va choisir.
+			// Créer et initialiser une variable 'globale' qui 
+			// va stocker le nombre de tentatives restantes.
+				
+					
+					
+			// Créer et initialiser une variable 'globale' qui 
+			// va stocker le nombre "aléatoire" mystère.
+			// == Fonction clickValider == 
+			// Créer la fonction 'clickvalider'
 
-		// Récupérer le contenu de mon input
+				// Récupérer le contenu de mon input
 
 
-		// Comparer ce contenu au nombre mystère.
+				// Comparer ce contenu au nombre mystère.
+					/*
+						Si le contenu est égal : 
+						- afficher une alert Gagné
+						- démarrer une nouvelle partie
+					*/
+					
+						
+
+					// Sinon s'il est supérieur
+					// Afficher une alert Perdu, votre nombre est trop grand
+					
+					// Sinon s'il est inférieur
+					// Afficher une alert Perdu, votre nombre est trop petit
+					// Dans les cas où c'est perdu, diminuer le nombre de tentatives
+					
+					// Actualiser la zone html affichant le nombre de tentatives
+
+					/* 
+						Si le nb de tentatives est égal à 0,
+					 	la partie est perdue :
+					 	- afficher que c'est perdu
+					 	- démarrer une nouvelle partie
+					 		+ remettre le nombre de tentatives à sa valeur initiale
+					 		+ générer un nouveau nombre mystère
+					 */
+					 
+					
+			// /Fin == Fonction clickValider == 
+					
+			// Ecrire le code qui va détecter que le bouton 'valider' est cliqué.
+			// Et qui appelle la fonction 'clickValider' défini ci-dessus
+
+			
+	  	
 			/*
-				Si le contenu est égal : 
-				- afficher une alert Gagné
-				- démarrer une nouvelle partie
+				Concernant la 'refactorisation' : 
+				- créer une fonction 'demarrerPartie'
+				- créer une fonction 'partieGagnee'
+				- créer une fonction 'partiePerdue'
 			*/
+
+				//## Step 4
+		//* Avant de commencer, donner la possiblité de choisir le nombre de tentatives
 			
-			if (selectname==mystere){
 
-				alert("Gagné !!!");
-			}
-				
-
-			// Sinon s'il est supérieur
-			// Afficher une alert Perdu, votre nombre est trop grand
-			if (selectname>mystere) {
-				alert("Perdu, votre nombre est trop grand !");
-				decompter--;
-				$(".count").text(decompter);
-			
-			}
-			
-			// Sinon s'il est inférieur
-			// Afficher une alert Perdu, votre nombre est trop petit
-			if (selectname<mystere) {
-				alert("Perdu, votre nombre est trop petit !");
-				decompter--;
-				$(".count").text(decompter);
-			}
-			
-			// Dans les cas où c'est perdu, diminuer le nombre de tentatives
-			if(selectname>mystere || selectname<mystere){
-			;
-			} 
-			// Actualiser la zone html affichant le nombre de tentatives
-
-			/* 
-				Si le nb de tentatives est égal à 0,
-			 	la partie est perdue :
-			 	- afficher que c'est perdu
-			 	- démarrer une nouvelle partie
-			 		+ remettre le nombre de tentatives à sa valeur initiale
-			 		+ générer un nouveau nombre mystère
-			 */
-			
-	// /Fin == Fonction clickValider == 
-			}
-
-	$("#valider").click(clickvalider);
-	
-}
-
-
-	// Ecrire le code qui va détecter que le bouton 'valider' est cliqué.
-	// Et qui appelle la fonction 'clickValider' défini ci-dessus
-
-
-	/*
-		Concernant la 'refactorisation' : 
-		- créer une fonction 'demarrerPartie'
-		- créer une fonction 'partieGagnee'
-		- créer une fonction 'partiePerdue'
-	*/
-
-	function demarrerPartie() {}
-	function partieGagnee () {}
-	function partiePerdue() {}
