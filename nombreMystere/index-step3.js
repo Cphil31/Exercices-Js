@@ -5,16 +5,18 @@
 			var recuprompt;
 			alert("Devine le chiffre mystère");
 			var mystere;
+			var valeurmin;
+			var valeurmax;
 
 			function reset (){
 					recuprompt= prompt("Nombre de tentatives");
-					console.log (recuprompt);
-					console.log(recuprompt);
-					mystere= Math.round(Math.random() * (10 - 1) + 1);
+					valeurmin= prompt ("Choisi ta valeur minimale ")
+					valeurmax= prompt ("Choisi ta valeur maximale ")
+					mystere= Math.round(Math.random() * (valeurmax - valeurmin) + 1);
 					$(".count").text(recuprompt);
 					console.log(mystere);
 			}
-
+			console.log (reset);
 
 			function clickvalider(){
 				var selectname=$("#nom").val();
@@ -45,6 +47,8 @@
 					reset();
 				}
 
+
+
 								} 
 
 			$("#valider").click(clickvalider);
@@ -52,9 +56,11 @@
 		}
 
 
-		function demarrerPartie() {
+		function valeursminmax() {
 
 		}
+
+		valeursminmax ();
 
 		//* Avant de commencer, choisir les valeurs minimale et maximale du nombre que l'ordinateur va choisir.
 			// Créer et initialiser une variable 'globale' qui 
