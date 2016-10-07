@@ -1,68 +1,67 @@
 		$(document).ready(main);
 		
-				function main(){
+		function main(){
+			
+			var recuprompt;
+			alert("Devine le chiffre mystère");
+			var mystere;
 
-					function reset (){
-
-						$(vies);
-					}
-					var recuprompt= prompt("Nombre de tentatives");
-					$(".count").text(recuprompt);
-					var vie=$('#vies');
-					var mystere= Math.round(Math.random() * (10 - 1) + 1);
+			function reset (){
+					recuprompt= prompt("Nombre de tentatives");
+					console.log (recuprompt);
 					console.log(recuprompt);
+					mystere= Math.round(Math.random() * (10 - 1) + 1);
+					$(".count").text(recuprompt);
 					console.log(mystere);
-
-
-					
-				function clickvalider(){
-						var selectname=$("#nom").val();
-					console.log(selectname);
-
-
-					if (selectname==mystere){	
-						alert("Gagné ");
-						$ (reset) ;
-								}
-
-
-					else if (selectname>mystere) {
-						alert("Perdu, votre nombre est trop grand !");
-						decompter--;
-						$(".count").text(decompter);
-					
-					}
-
-
-					else if (selectname<mystere) {
-						alert("Perdu, votre nombre est trop petit !");
-						decompter--;
-						$(".count").text(decompter);
-					}
-					
-					else{
-
-						alert ("Perdu")
-						}
-
-					} 
-					
-					$("#valider").click(clickvalider);
-					reset;
-					}
-
-					
-			function demarrerPartie() {
-				
-				alert("Choisi en combien de fois tu veux trouver le nombre mystère ?");
 			}
-					
+
+
+			function clickvalider(){
+				var selectname=$("#nom").val();
+				console.log(selectname);
+
+
+				if (selectname==mystere){	
+					alert("Gagné ");
+					reset();
+				}
+
+
+				else if (selectname>mystere) {
+					alert("Perdu, votre nombre est trop grand !");
+					recuprompt--;
+					$(".count").text(recuprompt);
+				}
+
+
+				else if (selectname<mystere) {
+					alert("Perdu, votre nombre est trop petit !");
+					recuprompt--;
+					$(".count").text(recuprompt);
+				}
+
+				if (recuprompt==0){
+					alert("Perdu, Recommence !");
+					reset();
+				}
+
+								} 
+
+			$("#valider").click(clickvalider);
+			reset();
+		}
+
+
+		function demarrerPartie() {
+
+		}
+
 		//* Avant de commencer, choisir les valeurs minimale et maximale du nombre que l'ordinateur va choisir.
 			// Créer et initialiser une variable 'globale' qui 
 			// va stocker le nombre de tentatives restantes.
-				
-					
-					
+
+
+
 			// Créer et initialiser une variable 'globale' qui 
 			// va stocker le nombre "aléatoire" mystère.
 			// == Fonction clickValider == 
@@ -76,8 +75,8 @@
 						Si le contenu est égal : 
 						- afficher une alert Gagné
 						- démarrer une nouvelle partie
-					*/
-					
+						*/
+
 						
 
 					// Sinon s'il est supérieur
@@ -96,24 +95,23 @@
 					 	- démarrer une nouvelle partie
 					 		+ remettre le nombre de tentatives à sa valeur initiale
 					 		+ générer un nouveau nombre mystère
-					 */
-					 
-					
+					 		*/
+
+
 			// /Fin == Fonction clickValider == 
-					
+
 			// Ecrire le code qui va détecter que le bouton 'valider' est cliqué.
 			// Et qui appelle la fonction 'clickValider' défini ci-dessus
 
 			
-	  	
+
 			/*
 				Concernant la 'refactorisation' : 
 				- créer une fonction 'demarrerPartie'
 				- créer une fonction 'partieGagnee'
 				- créer une fonction 'partiePerdue'
-			*/
+				*/
 
 				//## Step 4
 		//* Avant de commencer, donner la possiblité de choisir le nombre de tentatives
-			
-
+		
